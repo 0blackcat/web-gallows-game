@@ -14,7 +14,7 @@ def main():
 
 @app.route('/')
 def base():
-    return render_template('base.html')
+    return render_template('base.html', title='Главная страница')
 
 
 @app.route('/register', methods=['GET', 'POST'])
