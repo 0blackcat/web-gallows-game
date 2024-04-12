@@ -19,9 +19,6 @@ class User(SqlAlchemyBase, UserMixin):
     created_date = sqlalchemy.Column(sqlalchemy.DateTime, 
                                      default=datetime.datetime.now)
     news = orm.relationship("News", back_populates='user')
-    
-    def __repr__(self):
-        return (f'{self.id} {self.name} {self.about} {self.email} {self.hashed_password} {self.created_date}')
 
     def set_password(self, password):
         self.hashed_password = generate_password_hash(password)
