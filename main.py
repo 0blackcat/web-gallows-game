@@ -21,7 +21,7 @@ def load_user(user_id):
     return db_session.query(User).get(user_id)
 
 
-@app.route("/astronomy-site/logout")
+@app.route("/main-page/logout")
 @login_required
 def logout():  # Функция выхода из профиля.
     logout_user()
