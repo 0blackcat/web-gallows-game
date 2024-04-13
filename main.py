@@ -78,9 +78,9 @@ def sign_in():  # Функция авторизации
         user = db_session.query(User).filter(User.username == form.username.data).first()
         if user and user.check_password(form.password.data):
             login_user(user, remember=form.remember_me.data)
-            return redirect(url_for("astronomy_site"))
+            return redirect(url_for("main_page"))
         if user and not user.check_password(form.password.data):
-            return render_template("sign_in.html", message="Неправильный парль или имя пользователя", form=form)
+            return render_template("sign_in.html", message="Неправильный пароль или имя пользователя", form=form)
     return render_template("sign_in.html", title="Авторизация", form=form)
 
 
