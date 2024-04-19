@@ -5,33 +5,12 @@
 <div class="container mt-5">
   <form action="" method="post">
       {{ form.hidden_tag() }}
+      {%for field in form if field.name != 'csrf_token' and field.name != 'password_again' and field.name != 'submit'%}
       <p>
-        {{ form.username.label }}<br>
-        {{ form.username(class="form-control") }}<br>
-        {% for error in form.username.errors %}
-            <p class="alert alert-danger" role="alert">
-                {{ error }}
-            </p>
-        {% endfor %}
-    </p>
-      <p>
-          {{ form.email.label }}<br>
-          {{ form.email(class="form-control", type="email") }}<br>
-          {% for error in form.email.errors %}
-              <p class="alert alert-danger" role="alert">
-                  {{ error }}
-              </p>
-          {% endfor %}
+        {{field.label}} <br>
+        {{field(class='form-control')}}
       </p>
-      <p>
-        {{ form.age.label }}<br>
-        {{ form.age(class="form-control") }}<br>
-        {% for error in form.age.errors %}
-            <p class="alert alert-danger" role="alert">
-                {{ error }}
-            </p>
-        {% endfor %}
-    </p>
+      {%endfor%}
       <p>
           <div class="form-group">
               <label for="password">Пароль</label>
@@ -61,11 +40,6 @@
       <p>
           {{ form.password_again.label }}<br>
           {{ form.password_again(class="form-control", type="password") }}<br>
-          {% for error in form.password_again.errors %}
-              <p class="alert alert-danger" role="alert">
-                  {{ error }}
-              </p>
-          {% endfor %}
       </p>
       <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
       {{message}}
