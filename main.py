@@ -73,7 +73,7 @@ def sign_up():  # Функция регистрации
 @app.route("/main-page/sign-in")
 def sign_in():  # Функция авторизации
     form = SignInForm()
-    if form.validate_on_submit:
+    if form.validate_on_submit():
         db_session = create_session()
         user = db_session.query(User).filter(User.username == form.username.data).first()
         if user and user.check_password(form.password.data):

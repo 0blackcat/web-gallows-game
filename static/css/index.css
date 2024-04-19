@@ -1,3 +1,13 @@
 h1 {
     margin-left: 20px;
 }
+
+nav {
+    margin-right: 86%;
+    margin-left: 20px;;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
