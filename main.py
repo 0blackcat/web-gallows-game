@@ -21,7 +21,7 @@ def load_user(user_id):
     return db_session.query(User).get(user_id)
 
 
-@app.route("/main-page/logout")
+@app.route("/logout")
 @login_required
 def logout():  # Функция выхода из профиля.
     logout_user()
@@ -38,7 +38,7 @@ def main_page():  # Функция отображения основной ст�
     return render_template("main_page.html")
 
 
-@app.route("/main-page/sign-up", methods=['POST', 'GET'])
+@app.route("/sign-up", methods=['POST', 'GET'])
 def sign_up():  # Функция регистрации
     form = SignUpForm()
     if form.validate_on_submit():
@@ -70,7 +70,7 @@ def sign_up():  # Функция регистрации
     return render_template("sign_up.html", title='Регистрация', form=form)
 
 
-@app.route("/main-page/sign-in")
+@app.route("/sign-in")
 def sign_in():  # Функция авторизации
     form = SignInForm()
     if form.validate_on_submit():
