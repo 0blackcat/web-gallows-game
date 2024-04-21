@@ -25,7 +25,7 @@ def load_user(user_id):
 @login_required
 def logout():  # Функция выхода из профиля.
     logout_user()
-    return redirect(url_for("main_pasge"))
+    return redirect(url_for("main_page"))
 
 
 @app.route("/")
