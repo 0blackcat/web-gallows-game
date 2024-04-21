@@ -13,7 +13,7 @@
     <ul id="one">
         <li>
             <div><h2>ВИСЕЛЬНИЦА</h2></div>
-            <div><label for="время_3_ночи_я_не_могу">_ _ _ _ _ _</label></div>
+            <div id="display"></div>
             <div><img src="" alt="картинка_строящейся_висельницы"></div>
             <button>start</button>
             <div><label for="used_letters">Использованные слова</label></div>
@@ -81,4 +81,14 @@
         </li>
     </ul>
 </div>
+<script>
+    const buttons = document.querySelectorAll('input[type="button"]');
+    const display = document.getElementById('display');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            display.textContent += button.value;
+        });
+    });
+</script>
 {% endblock %}

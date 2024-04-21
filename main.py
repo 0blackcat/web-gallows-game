@@ -59,10 +59,11 @@ def sign_up():  # Функция регистрации
                                    title='Регистрация')
         if db_session.query(User).filter(User.email == form.email.data).first():
             return render_template("sign_up.html", form=form, message="Эта почта уже используется", title="Регистрация")
-        user = User()
-        user.username = form.username.data
-        user.email = form.email.data
-        user.age = form.age.data
+        user = User(
+            username=form.username.data,
+            email=form.email.data,
+            age=form.age.data
+        )
         user.set_password(request.form['password'])
         db_session.add(user)
         db_session.commit()
@@ -80,7 +81,9 @@ def sign_in():  # Функция авторизации
             login_user(user, remember=form.remember_me.data)
             return redirect(url_for("main_page"))
         if user and not user.check_password(form.password.data):
-            return render_template("sign_in.html", message="Неправильный пароль или имя пользователя", form=form)
+            return render_template("sign_in.html", 
+                                   message="Неправильный пароль или имя пользователя", 
+                                   form=form)
     return render_template("sign_in.html", title="Авторизация", form=form)
 
 
