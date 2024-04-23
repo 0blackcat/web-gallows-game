@@ -13,9 +13,9 @@
     <ul id="one">
         <li>
             <div><h2>ВИСЕЛЬНИЦА</h2></div>
-            <div id="display"></div>
+            <div id="display"></div>  <!--Контейнер для отображения правильных букв-->
             <div><img src="" alt="картинка_строящейся_висельницы"></div>
-            <button>start</button>
+            <button id="start_button">start</button>  <!--Кнопка для запуска игры-->
             <div><label for="used_letters">Использованные слова</label></div>
         </li>
     </ul>
@@ -23,72 +23,64 @@
         <li>
             <table>
                 <tr>
-                    <td><input type="button" value="А"></td>
-                    <td><input type="button" value="Б"></td>
-                    <td><input type="button" value="В"></td>
+                    <td><input class="letter" type="button" value="А"></td>
+                    <td><input class="letter" type="button" value="Б"></td>
+                    <td><input class="letter" type="button" value="В"></td>
                 </tr>
                 <tr>
-                    <td><input type="button" value="Г"></td>
-                    <td><input type="button" value="Д"></td>
-                    <td><input type="button" value="Е"></td>
+                    <td><input class="letter" type="button" value="Г"></td>
+                    <td><input class="letter" type="button" value="Д"></td>
+                    <td><input class="letter" type="button" value="Е"></td>
                 </tr>
                 <tr>
-                    <td><input type="button" value="Ё"></td>
-                    <td><input type="button" value="Ж"></td>
-                    <td><input type="button" value="З"></td>
+                    <td><input class="letter" type="button" value="Ё"></td>
+                    <td><input class="letter" type="button" value="Ж"></td>
+                    <td><input class="letter" type="button" value="З"></td>
                 </tr>
                 <tr>
-                    <td><input type="button" value="И"></td>
-                    <td><input type="button" value="Й"></td>
-                    <td><input type="button" value="К"></td>
+                    <td><input class="letter" type="button" value="И"></td>
+                    <td><input class="letter" type="button" value="Й"></td>
+                    <td><input class="letter" type="button" value="К"></td>
                 </tr>
                 <tr>
-                    <td><input type="button" value="Л"></td>
-                    <td><input type="button" value="М"></td>
-                    <td><input type="button" value="Н"></td>
+                    <td><input class="letter" type="button" value="Л"></td>
+                    <td><input class="letter" type="button" value="М"></td>
+                    <td><input class="letter" type="button" value="Н"></td>
                 </tr>
                 <tr>
-                    <td><input type="button" value="О"></td>
-                    <td><input type="button" value="П"></td>
-                    <td><input type="button" value="Р"></td>
+                    <td><input class="letter" type="button" value="О"></td>
+                    <td><input class="letter" type="button" value="П"></td>
+                    <td><input class="letter" type="button" value="Р"></td>
                 </tr>
                 <tr>
-                    <td><input type="button" value="С"></td>
-                    <td><input type="button" value="Т"></td>
-                    <td><input type="button" value="У"></td>
+                    <td><input class="letter" type="button" value="С"></td>
+                    <td><input class="letter" type="button" value="Т"></td>
+                    <td><input class="letter" type="button" value="У"></td>
                 </tr>
                 <tr>
-                    <td><input type="button" value="Ф"></td>
-                    <td><input type="button" value="Х"></td>
-                    <td><input type="button" value="Ц"></td>
+                    <td><input class="letter" type="button" value="Ф"></td>
+                    <td><input class="letter" type="button" value="Х"></td>
+                    <td><input class="letter" type="button" value="Ц"></td>
                 </tr>
                 <tr>
-                    <td><input type="button" value="Ч"></td>
-                    <td><input type="button" value="Ш"></td>
-                    <td><input type="button" value="Щ"></td>
+                    <td><input class="letter" type="button" value="Ч"></td>
+                    <td><input class="letter" type="button" value="Ш"></td>
+                    <td><input class="letter" type="button" value="Щ"></td>
                 </tr>
                 <tr>
-                    <td><input type="button" value="Ъ"></td>
-                    <td><input type="button" value="Ы"></td>
-                    <td><input type="button" value="Ь"></td>
+                    <td><input class="letter" type="button" value="Ъ"></td>
+                    <td><input class="letter" type="button" value="Ы"></td>
+                    <td><input class="letter" type="button" value="Ь"></td>
                 </tr>
                 <tr>
-                    <td><input type="button" value="Э"></td>
-                    <td><input type="button" value="Ю"></td>
-                    <td><input type="button" value="Я"></td>
+                    <td><input class="letter" type="button" value="Э"></td>
+                    <td><input class="letter" type="button" value="Ю"></td>
+                    <td><input class="letter" type="button" value="Я"></td>
                 </tr>
             </table>
         </li>
     </ul>
+    <!-- <input type="button" value="Привет"> -->
 </div>
-<script>
-    const buttons = document.querySelectorAll('input[type="button"]');
-    const display = document.getElementById('display');
-
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            display.textContent += button.value;
-        });
-    });
-</script>
+<script src="static/script.js"></script>
 {% endblock %}
