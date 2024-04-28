@@ -28,6 +28,13 @@ def logout():  # Функция выхода из профиля.
     return redirect(url_for("main_page"))
 
 
+@app.route('/rating')
+def rating():  # функция отображения рейтинга пользователей
+    db_sess = create_session()
+    user = db_sess.query(User)
+    return render_template('rating.html', user=user)
+
+
 @app.route("/")
 def redirect_page():  # Функция перенаправления на основной домен сайта
     return redirect(url_for("main_page"))
