@@ -13,10 +13,10 @@ class SignUpForm(FlaskForm):
 
 
 class SignInForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    remember_me = BooleanField("Remember me")
-    submit = SubmitField('Submit')
+    username = StringField('Имя пользователя', validators=[DataRequired()])
+    password = PasswordField('Пароль', validators=[DataRequired()])
+    remember_me = BooleanField("Запомнить меня")
+    submit = SubmitField('Подтвердить')
 
 
 def check_password(password):

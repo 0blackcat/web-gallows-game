@@ -1,7 +1,7 @@
 from flask import Flask, redirect, url_for, render_template, request
 from data.db_session import global_init, create_session
 from scripts import SignUpForm, SignInForm, check_password
-from flask_login import LoginManager, login_user, logout_user, login_required
+from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from data.users import User
 import os
 
@@ -40,6 +40,8 @@ def main_page():  # Функция отображения основной ст�
 
 @app.route("/main-page/sign-up", methods=['POST', 'GET'])
 def sign_up():  # Функция регистрации
+    if current_user.is_authenticated:
+        return redirect(url_for("main_page"))
     form = SignUpForm()
     if form.validate_on_submit():
         if (len(form.username.data) < 4 and
@@ -66,12 +68,14 @@ def sign_up():  # Функция регистрации
         user.set_password(request.form['password'])
         db_session.add(user)
         db_session.commit()
-        return redirect(url_for("main_page"))
+        return redirect(url_for("sign_in"))
     return render_template("sign_up.html", title='Регистрация', form=form)
 
 
 @app.route("/main-page/sign-in")
 def sign_in():  # Функция авторизации
+    if current_user.is_authenticated:
+        return redirect(url_for("main_page"))
     form = SignInForm()
     if form.validate_on_submit:
         db_session = create_session()
