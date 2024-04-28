@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>«Виселица» - лингвистическая игра, в которой нужно отгадывать слова.
+    Игрок, загадавший слово, пишет на листе бумаги ряд чёрточек, количество которых соответствует количеству букв в загаданном слове.
+    Традиционно загаданное слово должно быть именем существительным в единственном числе.
+    Игрок, отгадывающий слово, называет букву, которая может содержаться в загаданном слове.
+    Если последнее содержит такую букву, она пишется над всеми соответствующими этой букве чёрточками.
+    В случае, если названной буквы в загаданном слове нет, на листе рисуется один элемент виселицы с человечком.
+    Затем отгадывающий называет новую букву, и так далее - до завершения. После каждой неудачной попытки к рисунку добавляется следующий элемент виселицы.
+    В момент, когда виселица отрисована полностью, отгадывающий слово игрок признаётся проигравшим и считается «повешенным».</p>
+<div id='gallows_table' style="display: block;">
+    <ul id="one">
+        <li>
+            <div><h2>ВИСЕЛЬНИЦА</h2></div>
+            <div id="display"></div>  <!--Контейнер для отображения правильных букв-->
+            <div id="attempts">0</div>  <!--Контейнер для отображения количества используемых попыток-->
+            <div><img src="static\images\gallows_man.PNG" alt="картинка_строящейся_висельницы" height="300" width="278"></div>
+            <button id="start_button">start</button>  <!--Кнопка для запуска игры-->
+            <div><label for="used_letters">Использованные слова</label></div>
+        </li>
+    </ul>
+    <ul id="one">
+        <li>
+            <table>
+                <tr>
+                    <td><input class="letter" type="button" value="А"></td>
+                    <td><input class="letter" type="button" value="Б"></td>
+                    <td><input class="letter" type="button" value="В"></td>
+                </tr>
+                <tr>
+                    <td><input class="letter" type="button" value="Г"></td>
+                    <td><input class="letter" type="button" value="Д"></td>
+                    <td><input class="letter" type="button" value="Е"></td>
+                </tr>
+                <tr>
+                    <td><input class="letter" type="button" value="Ё"></td>
+                    <td><input class="letter" type="button" value="Ж"></td>
+                    <td><input class="letter" type="button" value="З"></td>
+                </tr>
+                <tr>
+                    <td><input class="letter" type="button" value="И"></td>
+                    <td><input class="letter" type="button" value="Й"></td>
+                    <td><input class="letter" type="button" value="К"></td>
+                </tr>
+                <tr>
+                    <td><input class="letter" type="button" value="Л"></td>
+                    <td><input class="letter" type="button" value="М"></td>
+                    <td><input class="letter" type="button" value="Н"></td>
+                </tr>
+                <tr>
+                    <td><input class="letter" type="button" value="О"></td>
+                    <td><input class="letter" type="button" value="П"></td>
+                    <td><input class="letter" type="button" value="Р"></td>
+                </tr>
+                <tr>
+                    <td><input class="letter" type="button" value="С"></td>
+                    <td><input class="letter" type="button" value="Т"></td>
+                    <td><input class="letter" type="button" value="У"></td>
+                </tr>
+                <tr>
+                    <td><input class="letter" type="button" value="Ф"></td>
+                    <td><input class="letter" type="button" value="Х"></td>
+                    <td><input class="letter" type="button" value="Ц"></td>
+                </tr>
+                <tr>
+                    <td><input class="letter" type="button" value="Ч"></td>
+                    <td><input class="letter" type="button" value="Ш"></td>
+                    <td><input class="letter" type="button" value="Щ"></td>
+                </tr>
+                <tr>
+                    <td><input class="letter" type="button" value="Ъ"></td>
+                    <td><input class="letter" type="button" value="Ы"></td>
+                    <td><input class="letter" type="button" value="Ь"></td>
+                </tr>
+                <tr>
+                    <td><input class="letter" type="button" value="Э"></td>
+                    <td><input class="letter" type="button" value="Ю"></td>
+                    <td><input class="letter" type="button" value="Я"></td>
+                </tr>
+            </table>
+        </li>
+    </ul>
+    <!-- <input type="button" value="Привет"> -->
+</div>
+<script src="static/script.js"></script>
+{% endblock %}

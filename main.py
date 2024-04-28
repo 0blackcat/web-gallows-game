@@ -21,11 +21,18 @@ def load_user(user_id):
     return db_session.query(User).get(user_id)
 
 
-@app.route("/main-page/logout")
+@app.route("/logout")
 @login_required
 def logout():  # Функция выхода из профиля.
     logout_user()
-    return redirect(url_for("main_pasge"))
+    return redirect(url_for("main_page"))
+
+
+@app.route('/rating')
+def rating():  # функция отображения рейтинга пользователей
+    db_sess = create_session()
+    users_rating = sorted(db_sess.query(User).all(), key=lambda x: x.rating)[::-1]
+    return render_template('rating.html', user=users_rating)
 
 
 @app.route("/")
@@ -38,7 +45,7 @@ def main_page():  # Функция отображения основной ст�
     return render_template("main_page.html")
 
 
-@app.route("/main-page/sign-up", methods=['POST', 'GET'])
+@app.route("/sign-up", methods=['POST', 'GET'])
 def sign_up():  # Функция регистрации
     if current_user.is_authenticated:
         return redirect(url_for("main_page"))
@@ -61,10 +68,11 @@ def sign_up():  # Функция регистрации
                                    title='Регистрация')
         if db_session.query(User).filter(User.email == form.email.data).first():
             return render_template("sign_up.html", form=form, message="Эта почта уже используется", title="Регистрация")
-        user = User()
-        user.username = form.username.data
-        user.email = form.email.data
-        user.age = form.age.data
+        user = User(
+            username=form.username.data,
+            email=form.email.data,
+            age=form.age.data
+        )
         user.set_password(request.form['password'])
         db_session.add(user)
         db_session.commit()
@@ -72,19 +80,21 @@ def sign_up():  # Функция регистрации
     return render_template("sign_up.html", title='Регистрация', form=form)
 
 
-@app.route("/main-page/sign-in")
+@app.route("/sign-in")
 def sign_in():  # Функция авторизации
     if current_user.is_authenticated:
         return redirect(url_for("main_page"))
     form = SignInForm()
-    if form.validate_on_submit:
+    if form.validate_on_submit():
         db_session = create_session()
         user = db_session.query(User).filter(User.username == form.username.data).first()
         if user and user.check_password(form.password.data):
             login_user(user, remember=form.remember_me.data)
             return redirect(url_for("main_page"))
         if user and not user.check_password(form.password.data):
-            return render_template("sign_in.html", message="Неправильный пароль или имя пользователя", form=form)
+            return render_template("sign_in.html",
+                                   message="Неправильный пароль или имя пользователя",
+                                   form=form)
     return render_template("sign_in.html", title="Авторизация", form=form)
 
 
