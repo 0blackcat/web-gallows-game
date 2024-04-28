@@ -1,0 +1,20 @@
+{%extends "base.html"%}
+{%block content%}
+
+<div class="container" style="margin-top: 10vh; justify-content: center;">
+    <div class="container" style="justify-content: center; max-width: 40vw;">
+        <h2>Авторизация</h2> <br>
+        <form action="" method="post">
+            {{form.hidden_tag()}}
+            {%for field in form if field.name != 'submit' and field.name != 'csrf_token' and field.name != 'remember_me'%}
+            <p>{{field.label}}</p>
+            <p>{{field(class='form-control', style='max-width: 50vw')}}</p>
+            {%endfor%}
+            <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+            <p><a href="/main-page/sign-up" style="text-decoration: none; color: grey;">Регистрация</a></p>
+            <p>{{form.submit(class='btn btn-primary', type='submit')}}</p>
+        </form>
+    </div>
+
+</div>
+{%endblock%}

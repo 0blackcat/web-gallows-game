@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Регистрация</h1>
-<div class="container mt-5">
+<div class="container" style="margin-top: 10vh; max-width: 40vw; justify-content: center;">
+  <h2>Регистрация</h2>
   <form action="" method="post">
       {{ form.hidden_tag() }}
       {%for field in form if field.name != 'csrf_token' and field.name != 'password_again' and field.name != 'submit'%}
@@ -39,8 +39,9 @@
       </p>
       <p>
           {{ form.password_again.label }}<br>
-          {{ form.password_again(class="form-control", type="password") }}<br>
+          {{ form.password_again(class="form-control", type="password") }}
       </p>
+      <p><a href="/main-page/sign-in" style="text-decoration: none; color: grey;">Авторизация</a></p>
       <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
       {{message}}
   </form>
