@@ -29,10 +29,11 @@ def logout():  # Функция выхода из профиля.
 
 
 @app.route('/rating')
+@login_required
 def rating():  # функция отображения рейтинга пользователей
     db_sess = create_session()
     users_rating = sorted(db_sess.query(User).all(), key=lambda x: x.rating)[::-1]
-    return render_template('rating.html', user=users_rating)
+    return render_template('rating.html', user=users_rating, title='Рейтинг игроков')
 
 
 @app.route("/")
@@ -42,10 +43,14 @@ def redirect_page():  # Функция перенаправления на ос�
 
 @app.route("/main-page")
 def main_page():  # Функция отображения основной страницы
-    return render_template("main_page.html")
+    return render_template("main_page.html", title='Игра в висельницу')
+
+@app.route("/main-page/rules")
+def rules_page():
+    return render_template("rules.html", title='Правила')
 
 
-@app.route("/sign-up", methods=['POST', 'GET'])
+@app.route("/main-page/sign-up", methods=['POST', 'GET'])
 def sign_up():  # Функция регистрации
     if current_user.is_authenticated:
         return redirect(url_for("main_page"))
@@ -71,7 +76,7 @@ def sign_up():  # Функция регистрации
         user = User(
             username=form.username.data,
             email=form.email.data,
-            age=form.age.data
+            age=form.age.data,
         )
         user.set_password(request.form['password'])
         db_session.add(user)
@@ -80,7 +85,7 @@ def sign_up():  # Функция регистрации
     return render_template("sign_up.html", title='Регистрация', form=form)
 
 
-@app.route("/sign-in")
+@app.route("/main-page/sign-in", methods=['POST', 'GET'])
 def sign_in():  # Функция авторизации
     if current_user.is_authenticated:
         return redirect(url_for("main_page"))
