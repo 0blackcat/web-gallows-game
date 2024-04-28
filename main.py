@@ -47,11 +47,11 @@ def sign_up():  # Функция регистрации
                 form.username.data.lower() not in ['admin', 'help', 'support']):
             return render_template('sign_up.html', form=form, message="Некорректное имя пользователя",
                                    title='Регистрация')
-        if request.form['password'] != form.password_again:
+        if request.form['password'] != form.password_again.data:
             return render_template('sign_up.html', form=form, message="Пароли не совпадают", title='Регистрация')
-        if check_password(form.password_again):
+        if check_password(form.password_again.data):
             return render_template('sign_up.html', form=form, message="Слабый пароль", title='Регистрация')
-        if form.age < 14:
+        if form.age.data < 14:
             return render_template('sign_up.html', form=form, message="Вы ещё юны", title='Регистрация')
         db_session = create_session()
         if db_session.query(User).filter(User.username == form.username.data).first():
