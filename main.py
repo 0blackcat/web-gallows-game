@@ -31,8 +31,8 @@ def logout():  # Функция выхода из профиля.
 @app.route('/rating')
 def rating():  # функция отображения рейтинга пользователей
     db_sess = create_session()
-    user = db_sess.query(User)
-    return render_template('rating.html', user=user)
+    users_rating = sorted(db_sess.query(User).all(), key=lambda x: x.rating)[::-1]
+    return render_template('rating.html', user=users_rating)
 
 
 @app.route("/")
@@ -88,8 +88,8 @@ def sign_in():  # Функция авторизации
             login_user(user, remember=form.remember_me.data)
             return redirect(url_for("main_page"))
         if user and not user.check_password(form.password.data):
-            return render_template("sign_in.html", 
-                                   message="Неправильный пароль или имя пользователя", 
+            return render_template("sign_in.html",
+                                   message="Неправильный пароль или имя пользователя",
                                    form=form)
     return render_template("sign_in.html", title="Авторизация", form=form)
 
