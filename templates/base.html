@@ -18,25 +18,27 @@
 
 <body>
     <header>
-        <nav style="margin-left: 0; padding-left: 0; margin-top: 20px;">
+        <div class="left">
             <a href="/" style="text-decoration: none; color: rgba(255, 255, 255, 0.948); display: flex;">
                 <li class="logo">
                     <img src="/static/images/gallows.png" width="37" height="37">
                 </li>
                 <li class="name_of_app">
-                    <h2>Игра в висельницу</h2>
+                    <h2>Висельница</h2>
                 </li>
             </a>
-        </nav>
-        <nav id="secondnav" class="navbar navbar-expand-lg bg-body-tertiary" style="text-align: right;">
+            </a>
+
+        </div>
+        <div class="right bg-dark">
             <div class="dropdown dropstart text-end position" style="max-width: 30%;">
                 <button type="button" class="btn btn-dark dropdown-toggle bg-dark text-white" data-bs-toggle="dropdown">
                     {%if current_user.is_authenticated%}
                     <span style="font-size: 20px; padding: 2px;">{{current_user.username}} <img class="rounded-circle"
                             src="/static/images/user.svg" alt="" style="width: 50px; height: 50px;"></span>
                     {%else%}
-                    <span style="font-size: 20px; padding: 2px;"><img class="rounded-circle" src="/static/images/anonym.svg" alt=""
-                            style="width: 50px; height: 50px;"></span>
+                    <span style="font-size: 20px; padding: 2px;"><img class="rounded-circle"
+                            src="/static/images/anonym.svg" alt="" style="width: 50px; height: 50px;"></span>
                     {%endif%}
 
                 </button>
@@ -106,7 +108,8 @@
 
                 </ul>
             </div>
-        </nav>
+        </div>
+
     </header>
     <main role="main">
         {% block content %}{% endblock %}
