@@ -4,6 +4,8 @@ from scripts import SignUpForm, SignInForm, check_password
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from data.users import User
 import os
+from api import get_fact
+
 
 app = Flask(__name__)
 login_manager = LoginManager()
@@ -43,7 +45,8 @@ def redirect_page():  # Функция перенаправления на ос�
 
 @app.route("/main-page")
 def main_page():  # Функция отображения основной страницы
-    return render_template("main_page.html", title='Игра в висельницу')
+    a = get_fact('https://catfact.ninja/fact')
+    return render_template("main_page.html", title='Игра в висельницу', a=a)
 
 
 @app.route("/main-page/rules")
