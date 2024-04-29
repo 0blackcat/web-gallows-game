@@ -48,7 +48,11 @@ def main_page():  # Функция отображения основной ст�
     if request.method == 'POST':
         json_data = request.get_json()
         value = json_data['value']  # получение переменной из JS (количество отгаданных слов)
-        print(f'Получено значение переменной из JavaScript: {value}')
+        db_session = create_session()
+        user = db_session.query(User).filter(User.username == current_user.username).first()
+        user.rating += int(value)
+        db_session.commit()
+        return redirect(url_for("main_page"))
 
     fact = get_fact('https://catfact.ninja/fact')
     return render_template("main_page.html", title='Игра в висельницу', fact=fact)
