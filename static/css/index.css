@@ -43,6 +43,12 @@ li {
     margin-top: 20px;
 }
 
+#name_table_rating {
+    cursor: grab;
+    padding: 0;
+    margin: 0;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -64,4 +70,31 @@ p {
 
 .right {
     margin-top: 10px;
+}
+
+#menu:hover {
+    color: aquamarine;
+}
+
+body {
+    background-image: url('/static/images/background_img.png');
+    background-size: 100% 100%;
+}
+
+#param_in_table {
+    cursor: default;
+}
+
+@media (hover: hover) {
+    #button_in_table_main_page:hover {
+        background-color:  rgb(73, 139, 117);
+        color:rgb(73, 139, 117);
+    }
+}
+
+@media (hover: none) {
+    #button_in_table_main_page:active {
+        background-color:  rgb(73, 139, 117);
+        color:rgb(73, 139, 117);
+    }
 }

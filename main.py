@@ -45,6 +45,7 @@ def redirect_page():  # Функция перенаправления на ос�
 def main_page():  # Функция отображения основной страницы
     return render_template("main_page.html", title='Игра в висельницу')
 
+
 @app.route("/main-page/rules")
 def rules_page():
     return render_template("rules.html", title='Правила')
