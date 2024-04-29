@@ -43,8 +43,13 @@ def redirect_page():  # Функция перенаправления на ос�
     return redirect(url_for("main_page"))
 
 
-@app.route("/main-page")
+@app.route("/main-page", methods=['POST', 'GET'])
 def main_page():  # Функция отображения основной страницы
+    if request.method == 'POST':
+        json_data = request.get_json()
+        value = json_data['value']  # получение переменной из JS (количество отгаданных слов)
+        print(f'Получено значение переменной из JavaScript: {value}')
+
     fact = get_fact('https://catfact.ninja/fact')
     return render_template("main_page.html", title='Игра в висельницу', fact=fact)
 
