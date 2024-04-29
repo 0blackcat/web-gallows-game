@@ -141,8 +141,8 @@ let used_letters = [];
 // прошлое слово пользователя
 let past_word = words_for_game[Math.floor(Math.random() * (words_for_game.length - 1))];  
 // количество использованных букв пользователем
+// let count_guessed_words = 0;
 let count_used_attempts = 0; 
-let count_guessed_words = 0;
 let isPlaying = true;
 let isGuess = true;
 
@@ -174,7 +174,7 @@ letter_buttons.forEach(button => {  // обходит каждую кнопку 
             // добавление буквы в список используемых
             used_letters.push(button.value);
             // отображение количества используемых попыток
-            attempts_display.textContent = count_used_attempts; 
+            // attempts_display.textContent = count_used_attempts; 
             // отображение используемых букв
             used_letters_display.textContent = used_letters.join(' ');
 
@@ -192,14 +192,14 @@ letter_buttons.forEach(button => {  // обходит каждую кнопку 
                 isPlaying = false;
                 
                 // отправка данных в Python
-                ++count_guessed_words;
+                // ++count_guessed_words;
                 var xhr = new XMLHttpRequest();
                 xhr.open("POST", "/main-page", true);
                 xhr.setRequestHeader('Content-Type', 'application/json');
-                xhr.send(JSON.stringify({value: count_guessed_words}));
+                xhr.send(JSON.stringify({value: 1}));
             }
             }
-        gallows_man_display.src = `static/images/gallows_man_${(count_used_attempts + 2).toString()}.PNG`
+        gallows_man_display.src = `static/images/gallows_man_${(count_used_attempts + 1).toString()}.PNG`
         }
     });
 });
@@ -224,19 +224,19 @@ const FuncStartButton = () => {
     // очищаем список с используемыми буквами
     used_letters = [];  
     count_used_attempts = 0;
-    attempts_display.textContent = count_used_attempts;
+    // attempts_display.textContent = count_used_attempts;
     used_letters_display.textContent = used_letters.join(' ')
     start_button.textContent = 'Начать заново'
     isPlaying = true;
     isGuess = true;
-    gallows_man_display.src = `static/images/gallows_man_${(count_used_attempts + 2).toString()}.PNG`
+    gallows_man_display.src = `static/images/gallows_man_${(count_used_attempts + 1).toString()}.PNG`
 }   
 
 const start_button = document.getElementById('start_button');  // получение кнопки start
 start_button.addEventListener('click', FuncStartButton);  // обработка нажатия кнопки start
 
 
-const attempts_display = document.getElementById('attempts');  // получение количества попыток
+// const attempts_display = document.getElementById('attempts');  // получение количества попыток
 
 const used_letters_display = document.getElementById('used_letters'); // получение используемых букв
 
