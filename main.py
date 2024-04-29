@@ -45,8 +45,8 @@ def redirect_page():  # Функция перенаправления на ос�
 
 @app.route("/main-page")
 def main_page():  # Функция отображения основной страницы
-    a = get_fact('https://catfact.ninja/fact')
-    return render_template("main_page.html", title='Игра в висельницу', a=a)
+    fact = get_fact('https://catfact.ninja/fact')
+    return render_template("main_page.html", title='Игра в висельницу', fact=fact)
 
 
 @app.route("/main-page/rules")
