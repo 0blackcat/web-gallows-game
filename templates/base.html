@@ -24,27 +24,25 @@
                     <img src="/static/images/gallows.png" width="37" height="37">
                 </li>
                 <li class="name_of_app">
-                    <h2>Висельница</h2>
+                    <h2 id="menu">Висельница</h2>
                 </li>
             </a>
             </a>
-
         </div>
         <div class="right bg-dark">
             <div class="dropdown dropstart text-end position" style="max-width: 30%;">
                 <button type="button" class="btn btn-dark dropdown-toggle bg-dark text-white" data-bs-toggle="dropdown">
                     {%if current_user.is_authenticated%}
-                    <span style="font-size: 20px; padding: 2px;">{{current_user.username}} <img class="rounded-circle"
+                    <span id="menu" style="font-size: 20px; padding: 2px; ">{{current_user.username}} <img class="rounded-circle"
                             src="/static/images/user.svg" alt="" style="width: 50px; height: 50px;"></span>
                     {%else%}
                     <span style="font-size: 20px; padding: 2px;"><img class="rounded-circle"
                             src="/static/images/anonym.svg" alt="" style="width: 50px; height: 50px;"></span>
                     {%endif%}
-
                 </button>
                 <ul class="dropdown-menu">
                     <li>
-                        <p>
+                        <p id="menu">
                             <a class="navbar-brand" href="/" aria-current="page">
                                 <img src="/static/images/game.svg" width="25" height="25"
                                     class="d-inline-block align-text-top">
@@ -53,7 +51,7 @@
                         </p>
                     </li>
                     <li>
-                        <p>
+                        <p id="menu">
                             <a class="navbar-brand" href="/main-page/rules" aria-current="page">
                                 <img src="/static/images/rules.svg" width="25" height="25"
                                     class="d-inline-block align-text-top">
@@ -62,7 +60,7 @@
                         </p>
                     </li>
                     <li>
-                        <p>
+                        <p id="menu">
                             <a class="navbar-brand" href="/rating" aria-current="page">
                                 <img src="/static/images/rating.png" width="25" height="25"
                                     class="d-inline-block align-text-top">
@@ -76,7 +74,7 @@
                     </li>
                     {%if not current_user.is_authenticated%}
                     <li>
-                        <p>
+                        <p id="menu">
                             <a class="navbar-brand" href="/main-page/sign-in" aria-current="page">
                                 <img src="/static/images/enter.png" width="25" height="25"
                                     class="d-inline-block align-text-top">
@@ -85,7 +83,7 @@
                         </p>
                     </li>
                     <li>
-                        <p>
+                        <p id="menu">
                             <a class="navbar-brand" href="/main-page/sign-up" aria-current="page">
                                 <img src="/static/images/register.png" width="25" height="25"
                                     class="d-inline-block align-text-top">
@@ -96,7 +94,7 @@
                     {%endif%}
                     {%if current_user.is_authenticated%}
                     <li>
-                        <p>
+                        <p id="menu">
                             <a class="navbar-brand" href="/logout" aria-current="page">
                                 <img src="/static/images/exit.png" width="25" height="25"
                                     class="d-inline-block align-text-top">
@@ -105,11 +103,9 @@
                         </p>
                     </li>
                     {%endif%}
-
                 </ul>
             </div>
         </div>
-
     </header>
     <main role="main">
         {% block content %}{% endblock %}
