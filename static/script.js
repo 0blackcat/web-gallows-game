@@ -142,6 +142,7 @@ let used_letters = [];
 let past_word = words_for_game[Math.floor(Math.random() * (words_for_game.length - 1))];  
 // количество использованных букв пользователем
 let count_used_attempts = 0; 
+let count_guessed_words = 0;
 let isPlaying = true;
 let isGuess = true;
 
@@ -189,9 +190,17 @@ letter_buttons.forEach(button => {  // обходит каждую кнопку 
                 // console.log('Вы отгадали слово!')
                 start_button.textContent = "Отлично! Хотите сыграть еще раз?"
                 isPlaying = false;
+                
+                // отправка данных в Python
+                ++count_guessed_words;
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "/main-page", true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send(JSON.stringify({value: count_guessed_words}));
             }
             }
-    }
+        gallows_man_display.src = `static/images/gallows_man_${(count_used_attempts + 2).toString()}.PNG`
+        }
     });
 });
 
@@ -219,6 +228,8 @@ const FuncStartButton = () => {
     used_letters_display.textContent = used_letters.join(' ')
     start_button.textContent = 'Начать заново'
     isPlaying = true;
+    isGuess = true;
+    gallows_man_display.src = `static/images/gallows_man_${(count_used_attempts + 2).toString()}.PNG`
 }   
 
 const start_button = document.getElementById('start_button');  // получение кнопки start
@@ -228,3 +239,5 @@ start_button.addEventListener('click', FuncStartButton);  // обработка 
 const attempts_display = document.getElementById('attempts');  // получение количества попыток
 
 const used_letters_display = document.getElementById('used_letters'); // получение используемых букв
+
+const gallows_man_display = document.getElementById('gallows_man'); // получение картинки висельницы
