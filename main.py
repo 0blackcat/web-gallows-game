@@ -53,9 +53,14 @@ def main_page():  # Функция отображения основной ст�
         user.rating += int(value)
         db_session.commit()
         return redirect(url_for("main_page"))
+    return render_template("main_page.html", title='Игра в висельницу')
 
+
+@app.route("/main-page/fun_facts")
+@login_required
+def fun_facts():
     fact = get_fact('https://catfact.ninja/fact')
-    return render_template("main_page.html", title='Игра в висельницу', fact=fact)
+    return render_template("fun_facts.html", title='Интересные факты', fact=fact)
 
 
 @app.route("/main-page/rules")

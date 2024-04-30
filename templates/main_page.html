@@ -1,16 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div id='gallows_table' style="display: block;">
+<div class="container" style="margin-top: 10vh;">
     <ul id="one">
         <li>
-            <div id="display"></div>  <!--Контейнер для отображения слова, которое отгадывают-->
-            <!-- <div id="attempts">0</div>  Контейнер для отображения количества используемых попыток -->
+            <div id="display" style="font-size: 30px;"></div>  <!--Контейнер для отображения слова, которое отгадывают-->
+            <!-- <div id="attempts" style="font-size: 30px;">0</div> Контейнер для отображения количества используемых попыток -->
             <div><img src="static\images\gallows_man_1.PNG" alt="картинка_строящейся_висельницы" height="300" width="278" id="gallows_man"></div>
             <button class="btn" style="background-color: black; color: white;" id="start_button">Старт</button>  <!--Кнопка для запуска игры-->
             <!-- <button class="btn" style="background-color: black; color: white;" id="save_button" type="submit">Сохранить данные</button>  Кнопка для сохранения данных -->
             <div id="used_letters"></div> <!--Использоанные буквы-->
-            <div id="random_fact"><p>A random fact about cats:<br/>{{ fact }}</p></div>
         </li>
     </ul>
     <ul id="one">

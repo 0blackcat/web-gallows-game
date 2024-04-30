@@ -240,7 +240,6 @@ let past_word = words_for_game[Math.floor(Math.random() * (words_for_game.length
 
 // let count_guessed_words = 0;
 let count_used_attempts = 0;
->>>>>>> 080e05d19adf1b8878ab07a56f8b2f1a046f887e
 let isPlaying = true;
 let isGuess = true;
 
