@@ -1,80 +1,81 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div id='gallows_table' style="display: block;">
-    <ul id="one">
-        <li>
-            <div id="display"></div>  <!--Контейнер для отображения слова, которое отгадывают-->
-            <div id="attempts">0</div>  <!--Контейнер для отображения количества используемых попыток-->
-            <div><img src="static\images\gallows_man_2.PNG" alt="картинка_строящейся_висельницы" height="300" width="278" id="gallows_man"></div>
-            <button class="btn" style="background-color: black; color: white;" id="start_button">Старт</button>  <!--Кнопка для запуска игры-->
-            <!-- <button class="btn" style="background-color: black; color: white;" id="save_button" type="submit">Сохранить данные</button>  Кнопка для сохранения данных -->
-            <div id="used_letters"></div> <!--Использоанные буквы-->
-            <p>A random fact about cats:<br/>{{ fact }}</p>
-        </li>
-    </ul>
-    <ul id="one">
-        <li>
-            <table>
-                <tr>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="А"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Б"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="В"></td>
-                </tr>
-                <tr>
-                    <td  id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Г"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Д"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Е"></td>
-                </tr>
-                <tr>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Ё"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Ж"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="З"></td>
-                </tr>
-                <tr>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="И"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Й"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="К"></td>
-                </tr>
-                <tr>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Л"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="М"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Н"></td>
-                </tr>
-                <tr>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="О"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="П"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Р"></td>
-                </tr>
-                <tr>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="С"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Т"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="У"></td>
-                </tr>
-                <tr>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Ф"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Х"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Ц"></td>
-                </tr>
-                <tr>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Ч"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Ш"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Щ"></td>
-                </tr>
-                <tr>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Ъ"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Ы"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Ь"></td>
-                </tr>
-                <tr>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Э"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Ю"></td>
-                    <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Я"></td>
-                </tr>
-            </table>
-        </li>
-    </ul>
-    <!-- <input type="button" value="Привет"> -->
+<div class="container">
+    <div id="gallows_table">
+        <ul id="one">
+            <li>
+                <div id="display" style="font-size: 30px;"></div>  <!--Контейнер для отображения слова, которое отгадывают-->
+                <div id="attempts" style="font-size: 30px;">0</div>  <!--Контейнер для отображения количества используемых попыток-->
+                <div><img src="/static/images/gallows_man_1.png" alt="картинка_строящейся_висельницы" height="300" width="278" id="gallows_man"></div>
+                <button class="btn" style="background-color: black; color: white;" id="start_button">Старт</button>  <!--Кнопка для запуска игры-->
+                <!-- <button class="btn" style="background-color: black; color: white;" id="save_button" type="submit">Сохранить данные</button>  Кнопка для сохранения данных -->
+                <div id="used_letters"></div> <!--Использоанные буквы-->
+                <p id="facts">A random fact about cats:<br/>{{ fact }}</p>
+            </li>
+        </ul>
+        <ul id="one">
+            <li>
+                <table>
+                    <tr>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="А"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Б"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="В"></td>
+                    </tr>
+                    <tr>
+                        <td  id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Г"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Д"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Е"></td>
+                    </tr>
+                    <tr>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Ё"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Ж"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="З"></td>
+                    </tr>
+                    <tr>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="И"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Й"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="К"></td>
+                    </tr>
+                    <tr>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Л"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="М"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Н"></td>
+                    </tr>
+                    <tr>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="О"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="П"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Р"></td>
+                    </tr>
+                    <tr>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="С"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Т"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="У"></td>
+                    </tr>
+                    <tr>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Ф"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Х"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Ц"></td>
+                    </tr>
+                    <tr>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Ч"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Ш"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Щ"></td>
+                    </tr>
+                    <tr>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Ъ"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Ы"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Ь"></td>
+                    </tr>
+                    <tr>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Э"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Ю"></td>
+                        <td id="button_in_table_main_page"><input class="letter btn btn-lg" style="background-color:rgb(22, 173, 143);" type="button" value="Я"></td>
+                    </tr>
+                </table>
+            </li>
+        </ul>
+    </div>
 </div>
 <script src="static/script.js"></script>
 {% endblock %}

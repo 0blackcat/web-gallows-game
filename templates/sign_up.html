@@ -4,46 +4,46 @@
 <div class="container" style="margin-top: 10vh; max-width: 40vw; justify-content: center;">
   <h2>Регистрация</h2>
   <form action="" method="post">
-      {{ form.hidden_tag() }}
-      {%for field in form if field.name != 'csrf_token' and field.name != 'password_again' and field.name != 'submit'%}
-      <p>
-        {{field.label}} <br>
-        {{field(class='form-control')}}
-      </p>
-      {%endfor%}
-      <p>
-          <div class="form-group">
-              <label for="password">Пароль</label>
-              <div class="input-group">
-                <input type="password" class="form-control" id="password" name="password" oninput="validatePassword(this.value)"
-                  required />
-              </div>
-            </div>
-            <div class="form-group">
-              <ul>
-                <li id="minLength">
-                  <i class="fas fa-times text-danger"></i> Minimum 8 characters
-                </li>
-                <li id="uppercase">
-                  <i class="fas fa-times text-danger"></i> At least one uppercase letter
-                </li>
-                <li id="lowercase">
-                  <i class="fas fa-times text-danger"></i> At least one lowercase letter
-                </li>
-                <li id="symbol">
-                  <i class="fas fa-times text-danger"></i>
-                  At least one symbol (_@$!%.*?&)
-                </li>
-              </ul>
-            </div>
-      </p>
-      <p>
-          {{ form.password_again.label }}<br>
-          {{ form.password_again(class="form-control", type="password") }}
-      </p>
-      <p><a href="/main-page/sign-in" style="text-decoration: none; color: grey;">Авторизация</a></p>
-      <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
-      {{message}}
+    {{ form.hidden_tag() }}
+    {%for field in form if field.name != 'csrf_token' and field.name != 'password_again' and field.name != 'submit'%}
+    <p>
+      {{field.label}} <br>
+      {{field(class='form-control')}}
+    </p>
+    {%endfor%}
+    <p>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <div class="input-group">
+        <input type="password" class="form-control" id="password" name="password" oninput="validatePassword(this.value)"
+          required />
+      </div>
+    </div>
+    <div class="form-group">
+      <ul>
+        <li id="minLength">
+          <i class="fas fa-times text-danger"></i> Minimum 8 characters
+        </li>
+        <li id="uppercase">
+          <i class="fas fa-times text-danger"></i> At least one uppercase letter
+        </li>
+        <li id="lowercase">
+          <i class="fas fa-times text-danger"></i> At least one lowercase letter
+        </li>
+        <li id="symbol">
+          <i class="fas fa-times text-danger"></i>
+          At least one symbol (_@$!%.*?&)
+        </li>
+      </ul>
+    </div>
+    </p>
+    <p>
+      {{ form.password_again.label }}<br>
+      {{ form.password_again(class="form-control", type="password") }}
+    </p>
+    <p><a href="/main-page/sign-in" style="text-decoration: none; color: grey;">Авторизация</a></p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    {{message}}
   </form>
 </div>
 {% endblock %}

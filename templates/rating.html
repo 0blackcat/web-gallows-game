@@ -16,7 +16,7 @@
             {% for item in user %}
             <tr>
                 <th id="param_in_table" scope="row">{{ loop.index }}</th>
-                <td><span id="name_table_rating">{{ item.username }}</span></td>
+                <td><span id="name_table_rating"><a style="text-decoration: none;" class="text-white" href={{item.user_profile}}>{{ item.username }}</a></span></td>
                 <td id="param_in_table">{{ item.age }}</td>
                 <td id="param_in_table">{{ item.rating }}</td>
             </tr>

@@ -78,6 +78,8 @@ def sign_up():  # Функция регистрации
             return render_template('sign_up.html', form=form, message="Пароли не совпадают", title='Регистрация')
         if check_password(form.password_again.data):
             return render_template('sign_up.html', form=form, message="Слабый пароль", title='Регистрация')
+        if not type(form.age.data) is int:
+            return render_template('sign_up.html', form=form, message="Некорректно введен возраст", title='Регистрация')
         if form.age.data < 14:
             return render_template('sign_up.html', form=form, message="Вы ещё юны", title='Регистрация')
         db_session = create_session()
@@ -90,12 +92,23 @@ def sign_up():  # Функция регистрации
             username=form.username.data,
             email=form.email.data,
             age=form.age.data,
+            user_profile=f"/main-page/{form.username.data}"
         )
         user.set_password(request.form['password'])
         db_session.add(user)
         db_session.commit()
         return redirect(url_for("sign_in"))
     return render_template("sign_up.html", title='Регистрация', form=form)
+
+
+@app.route("/main-page/<string:username>")
+@login_required
+def user_profile(username):
+    db_session = create_session()
+    user = db_session.query(User).filter(User.username == username).first()
+    if not user:
+        return render_template("user_not_found.html")
+    return render_template("user_show.html", user=user)
 
 
 @app.route("/main-page/sign-in", methods=['POST', 'GET'])

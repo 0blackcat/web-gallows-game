@@ -98,3 +98,17 @@ body {
         color:rgb(73, 139, 117);
     }
 }
+
+/* @media (hover: hover) {
+    #start_button:hover {
+        background-color:  rgb(73, 139, 117);
+        color:rgb(73, 139, 117);
+    }
+}
+
+@media (hover: hover) {
+    #start_button:active {
+        background-color:  rgb(73, 139, 117);
+        color:rgb(73, 139, 117);
+    }
+} */
