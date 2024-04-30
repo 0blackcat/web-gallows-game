@@ -89,6 +89,7 @@ body {
     #button_in_table_main_page:hover {
         background-color:  rgb(73, 139, 117);
         color:rgb(73, 139, 117);
+        border-radius: 10%;
     }
 }
 
@@ -96,6 +97,7 @@ body {
     #button_in_table_main_page:active {
         background-color:  rgb(73, 139, 117);
         color:rgb(73, 139, 117);
+        border-radius: 10%;
     }
 }
 
@@ -122,4 +124,10 @@ body {
 
 #left_menu_link {
     margin-left: 20px;
+}
+
+@media screen and (max-width: 200px) {
+    div#random_fact {
+        font-size: 10px;
+    }
 }
