@@ -18,7 +18,7 @@
 
 <body>
     <header>
-        <div class="left">
+        <div id="left_menu_link" class="left">
             <a href="/" style="text-decoration: none; color: rgba(255, 255, 255, 0.948); display: flex;">
                 <li class="logo">
                     <img src="/static/images/gallows.png" width="37" height="37">
@@ -29,7 +29,7 @@
             </a>
             </a>
         </div>
-        <div class="right bg-dark">
+        <div id="right_menu_link" class="right bg-dark">
             <div class="dropdown dropstart text-end position" style="max-width: 30%;">
                 <button type="button" class="btn btn-dark dropdown-toggle bg-dark text-white" data-bs-toggle="dropdown">
                     {%if current_user.is_authenticated%}

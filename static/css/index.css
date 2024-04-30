@@ -89,6 +89,7 @@ body {
     #button_in_table_main_page:hover {
         background-color:  rgb(73, 139, 117);
         color:rgb(73, 139, 117);
+        border-radius: 10%;
     }
 }
 
@@ -96,6 +97,38 @@ body {
     #button_in_table_main_page:active {
         background-color:  rgb(73, 139, 117);
         color:rgb(73, 139, 117);
+        border-radius: 10%;
+    }
+}
+
+#start_button {
+    margin-top: 20px;
+}
+
+#start_button:hover {
+    animation: tilt-shaking 0.25s infinite;
+    
+}
+
+@keyframes tilt-shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+#right_menu_link {
+    margin-right: 40px;
+}
+
+#left_menu_link {
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 200px) {
+    div#random_fact {
+        font-size: 10px;
     }
 }
 

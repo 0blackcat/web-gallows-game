@@ -1,5 +1,6 @@
 // список слов для игры
 const words_for_game = [
+<<<<<<< HEAD
 "яблоко",
 "стол",
 "дом",
@@ -136,13 +137,252 @@ const words_for_game = [
 "вселенная",
 "планетарий",
 "астрономия"];
+=======
+    "стол",
+    "книга",
+    "дом",
+    "солнце",
+    "кошка",
+    "планета",
+    "окно",
+    "корабль",
+    "цветок",
+    "медведь",
+    "дерево",
+    "собака",
+    "звезда",
+    "мышь",
+    "птица",
+    "банан",
+    "море",
+    "гора",
+    "снег",
+    "река",
+    "автомобиль",
+    "яблоко",
+    "картина",
+    "человек",
+    "телефон",
+    "парк",
+    "паровоз",
+    "кресло",
+    "кот",
+    "поле",
+    "красота",
+    "замок",
+    "трава",
+    "портрет",
+    "мост",
+    "музей",
+    "берег",
+    "печь",
+    "фотоаппарат",
+    "дорога",
+    "танк",
+    "куст",
+    "молоко",
+    "сок",
+    "котенок",
+    "шарик",
+    "корова",
+    "лист",
+    "король",
+    "королева",
+    "сказка",
+    "автобус",
+    "телевизор",
+    "стекло",
+    "порт",
+    "свет",
+    "деньги",
+    "дождь",
+    "фильм",
+    "корзина",
+    "карта",
+    "нос",
+    "парень",
+    "девушка",
+    "сосед",
+    "забор",
+    "конь",
+    "компьютер",
+    "заметка",
+    "дверь",
+    "ключ",
+    "улица",
+    "холодильник",
+    "картинка",
+    "мечта",
+    "костюм",
+    "облако",
+    "мышка",
+    "поезд",
+    "стакан",
+    "воздух",
+    "футбол",
+    "флаг",
+    "судно",
+    "лес",
+    "мозг",
+    "рот",
+    "ноутбук",
+    "принцесса",
+    "дракон",
+    "собиратель",
+    "крыша",
+    "шапка",
+    "палец",
+    "сон",
+    "птичка",
+    "воробей",
+    "часы",
+    "бревно",
+    "палка",
+    "звук",
+    "блокнот",
+    "автомат",
+    "принтер",
+    "муравей",
+    "парик",
+    "сапог",
+    "фонтан",
+    "танец",
+    "пират",
+    "корабль",
+    "паром",
+    "видео",
+    "тетрадь",
+    "сотрудник",
+    "музыка",
+    "диван",
+    "стена",
+    "выход",
+    "столб",
+    "нога",
+    "тень",
+    "платье",
+    "подушка",
+    "минута",
+    "футболка",
+    "дым",
+    "костер",
+    "джинсы",
+    "пиджак",
+    "сумка",
+    "волна",
+    "кольцо",
+    "цепь",
+    "подарок",
+    "тропинка",
+    "крыло",
+    "чайник",
+    "молния",
+    "билет",
+    "лифт",
+    "подоконник",
+    "звездочка",
+    "солдат",
+    "пистолет",
+    "космос",
+    "космонавт",
+    "приз",
+    "диплом",
+    "календарь",
+    "символ",
+    "магазин",
+    "механизм",
+    "весна",
+    "лето",
+    "осень",
+    "зима",
+    "птицы",
+    "рыба",
+    "заяц",
+    "медведи",
+    "бобер",
+    "волк",
+    "лиса",
+    "олень",
+    "муха",
+    "пчела",
+    "комар",
+    "паук",
+    "слон",
+    "жираф",
+    "лев",
+    "тигр",
+    "зебра",
+    "жираф",
+    "крокодил",
+    "хомяк",
+    "свинья",
+    "корова",
+    "лошадь",
+    "овца",
+    "курица",
+    "утка",
+    "гусь",
+    "павлин",
+    "фазан",
+    "голубь",
+    "воробей",
+    "ястреб",
+    "сокол",
+    "орел",
+    "аллигатор",
+    "кролик",
+    "баран",
+    "петух",
+    "жаворонок",
+    "ворона",
+    "сова",
+    "лебедь",
+    "чайка",
+    "аист",
+    "фламинго",
+    "кондор",
+    "коршун",
+    "пеликан",
+    "каракара",
+    "качалка",
+    "автобус",
+    "троллейбус",
+    "трамвай",
+    "метро",
+    "такси",
+    "трактор",
+    "кран",
+    "бульдозер",
+    "погрузчик",
+    "экскаватор",
+    "грузовик",
+    "поезд",
+    "поезд",
+    "электричка",
+    "самолет",
+    "вертолет",
+    "планер",
+    "корабль",
+    "лодка",
+    "пароход",
+    "катер",
+    "яхта",
+    "парусник",
+    "байдарка"
+]  
+>>>>>>> 080e05d19adf1b8878ab07a56f8b2f1a046f887e
 // уже использованные буквы пользователем
 let used_letters = [];
 // прошлое слово пользователя
 let past_word = words_for_game[Math.floor(Math.random() * (words_for_game.length - 1))];
 // количество использованных букв пользователем
+<<<<<<< HEAD
 let count_used_attempts = 0;
 let count_guessed_words = 0;
+=======
+// let count_guessed_words = 0;
+let count_used_attempts = 0; 
+>>>>>>> 080e05d19adf1b8878ab07a56f8b2f1a046f887e
 let isPlaying = true;
 let isGuess = true;
 
@@ -174,7 +414,11 @@ letter_buttons.forEach(button => {  // обходит каждую кнопку 
             // добавление буквы в список используемых
             used_letters.push(button.value);
             // отображение количества используемых попыток
+<<<<<<< HEAD
             attempts_display.textContent = count_used_attempts;
+=======
+            // attempts_display.textContent = count_used_attempts; 
+>>>>>>> 080e05d19adf1b8878ab07a56f8b2f1a046f887e
             // отображение используемых букв
             used_letters_display.textContent = used_letters.join(' ');
 
@@ -192,14 +436,18 @@ letter_buttons.forEach(button => {  // обходит каждую кнопку 
                 isPlaying = false;
 
                 // отправка данных в Python
-                ++count_guessed_words;
+                // ++count_guessed_words;
                 var xhr = new XMLHttpRequest();
                 xhr.open("POST", "/main-page", true);
                 xhr.setRequestHeader('Content-Type', 'application/json');
-                xhr.send(JSON.stringify({value: count_guessed_words}));
+                xhr.send(JSON.stringify({value: 1}));
             }
             }
+<<<<<<< HEAD
         gallows_man_display.src = `/static/images/gallows_man_${(count_used_attempts + 2).toString()}.png`
+=======
+        gallows_man_display.src = `static/images/gallows_man_${(count_used_attempts + 1).toString()}.PNG`
+>>>>>>> 080e05d19adf1b8878ab07a56f8b2f1a046f887e
         }
     });
 });
@@ -224,19 +472,24 @@ const FuncStartButton = () => {
     // очищаем список с используемыми буквами
     used_letters = [];
     count_used_attempts = 0;
-    attempts_display.textContent = count_used_attempts;
+    // attempts_display.textContent = count_used_attempts;
     used_letters_display.textContent = used_letters.join(' ')
     start_button.textContent = 'Начать заново'
     isPlaying = true;
     isGuess = true;
+<<<<<<< HEAD
     gallows_man_display.src = `/static/images/gallows_man_${(count_used_attempts + 2).toString()}.png`
 }
+=======
+    gallows_man_display.src = `static/images/gallows_man_${(count_used_attempts + 1).toString()}.PNG`
+}   
+>>>>>>> 080e05d19adf1b8878ab07a56f8b2f1a046f887e
 
 const start_button = document.getElementById('start_button');  // получение кнопки start
 start_button.addEventListener('click', FuncStartButton);  // обработка нажатия кнопки start
 
 
-const attempts_display = document.getElementById('attempts');  // получение количества попыток
+// const attempts_display = document.getElementById('attempts');  // получение количества попыток
 
 const used_letters_display = document.getElementById('used_letters'); // получение используемых букв
 
